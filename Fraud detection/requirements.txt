@@ -1,7 +1,5 @@
+streamlit
 pandas
 numpy
-scikit-learn
 matplotlib
-seaborn
-imbalanced-learn
-tensorflow
+scikit-learn
