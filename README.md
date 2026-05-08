@@ -41,16 +41,13 @@ Credit card fraud causes **billions of dollars** in losses every year. Out of 2,
 ### 🔗 [https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/](https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/)
 
 ### Main Dashboard
-![Main Dashboard]("")
+![Main Dashboard](file:///C:/Users/Sakshi/OneDrive/Pictures/Screenshots/Screenshot%202026-05-08%20093532.png)
 
 ### Fraud Detection Result
-![Fraud Result](screenshots/fraud_result.png)
+![Fraud Result](file:///C:/Users/Sakshi/OneDrive/Pictures/Screenshots/Screenshot%202026-05-08%20093612.png)
 
 ### Legitimate Transaction Result
-![Legit Result](screenshots/legit_result.png)
-
-### Model Comparison Charts
-![Charts](screenshots/charts.png)
+![Legit Result](file:///C:/Users/Sakshi/OneDrive/Pictures/Screenshots/Screenshot%202026-05-08%20093612.png)
 
 </div>
 
