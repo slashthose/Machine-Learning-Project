@@ -14,12 +14,6 @@ import os
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import gdown
-import os
-
-if not os.path.exists("creditcard.csv"):
-    url = "https://drive.google.com/uc?id=1550FmRpcOFHxNr7b-hDPRhQVdYqR5mtQ"
-    gdown.download(url, "creditcard.csv", quiet=False)
 
 df = pd.read_csv("creditcard.csv")
 
