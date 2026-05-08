@@ -25,7 +25,7 @@ df = pd.read_csv("creditcard.csv")
 
 # ── Page Config ─────────────────────────────────────────────
 st.set_page_config(
-    page_title="Fraud Detection | Sakshi | GBU",
+    page_title="Fraud Detection | GBU",
     page_icon="🛡️",
     layout="wide"
 )
@@ -245,7 +245,7 @@ with tab1:
         st.markdown("### 💳 Transaction Details")
 
         amount = st.number_input(
-            "Transaction Amount ($)",
+            "Transaction Amount (₹)",
             min_value=0.01,
             max_value=50000.0,
             value=float(default_amount)
@@ -262,7 +262,7 @@ with tab1:
 
         st.markdown("### ⚠️ Risk Indicators")
 
-        st.markdown(f"**Amount:** ${default_amount:,.2f}")
+        st.markdown(f"**Amount:** ₹{default_amount:,.2f}")
         st.markdown(f"**Time:** {default_time:,} seconds")
 
         if selected != "-- Select a sample --":
