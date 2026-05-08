@@ -340,7 +340,7 @@ with tab1:
 
         r2.metric("Fraud Risk", f"{fraud_prob}%")
         r3.metric("Legitimate", f"{legit_prob}%")
-        r4.metric("Amount", f"${amount:,.2f}")
+        r4.metric("Amount", f"₹{amount:,.2f}")
 
         if prediction == 1:
 
