@@ -81,22 +81,6 @@ Credit card fraud causes **billions of dollars** in losses every year. Out of 2,
 
 ---
 
-## 📈 Output Graphs
-
-<div align="center">
-
-### EDA Plots
-![EDA](outputs/eda_plots.png)
-
-### Model Comparison
-![Model Comparison](outputs/model_comparison.png)
-
-### Best Model Evaluation
-![Best Model](outputs/best_model_evaluation.png)
-
-### Neural Network Training
-![Neural Network](outputs/neural_network_training.png)
-
 </div>
 
 ---
