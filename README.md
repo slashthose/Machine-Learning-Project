@@ -5,7 +5,9 @@
 [![Python](https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge&logo=python)](https://python.org)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-Latest-orange?style=for-the-badge&logo=scikit-learn)](https://scikit-learn.org)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-Latest-FF6F00?style=for-the-badge&logo=tensorflow)](https://tensorflow.org)
-[![Streamlit](https://img.shields.io/badge/Streamlit-Latest-FF4B4B?style=for-the-badge&logo=streamlit)](https://streamlit.io)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?style=for-the-badge&logo=streamlit)](https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/)
+
+### 🚀 [Click Here to View Live Demo](https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/)
 
 **A complete end-to-end Machine Learning system that detects fraudulent credit card transactions in real time with 99.99% accuracy**
 
@@ -22,6 +24,7 @@
 | **Program** | B.Tech CSE (Artificial Intelligence) |
 | **Course** | Machine Learning |
 | **Year** | 2024-25 |
+| **Live App** | [https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/](https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/) |
 
 ---
 
@@ -35,8 +38,10 @@ Credit card fraud causes **billions of dollars** in losses every year. Out of 2,
 
 <div align="center">
 
+### 🔗 [https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/](https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/)
+
 ### Main Dashboard
-![Main Dashboard](screenshots/dashboard.png)
+![Main Dashboard]("")
 
 ### Fraud Detection Result
 ![Fraud Result](screenshots/fraud_result.png)
@@ -146,7 +151,7 @@ fraud-detection/
 
 ---
 
-## 🚀 How to Run
+## 🚀 How to Run Locally
 
 ### Step 1 - Clone Repository
 ```bash
@@ -222,7 +227,7 @@ http://localhost:8501
 - ✅ ROC-AUC of **1.0000** means perfect fraud detection
 - ✅ SMOTE balanced dataset from **492 to 5,68,630 samples**
 - ✅ Neural Network trained **15 epochs** reached 99.88%
-- ✅ **Live web app** built for real time detection
+- ✅ **Live web app** deployed on Streamlit Cloud
 - ✅ Covers **all 4 units** of ML syllabus in one project
 - ✅ **5 models** trained and compared on same dataset
 
@@ -250,6 +255,8 @@ The `model.pkl` file is also **not included** due to its large size of 400-600MB
 <div align="center">
 
 **🛡️ Online Fraud Detection System**
+
+### 🚀 [View Live Demo](https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/)
 
 Made with ❤️ by **Sakshi** | Gautam Buddha University | B.Tech CSE (AI) | 2024-25
 
