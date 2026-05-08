@@ -241,7 +241,7 @@ The `model.pkl` file is also **not included** due to its large size of 400-600MB
 
 ## 👨‍💻 Group Members
  
-| Name | Enrollment No |
+| Name | Roll No |
 |------|--------------|
 | Sakshi Singh | 245UAI053 |
 | Kumkum | 245UAI067 |
