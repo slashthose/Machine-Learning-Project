@@ -54,10 +54,10 @@ st.sidebar.title("📊 Project Info")
 
 st.sidebar.markdown("""
 ### 👨‍💻 Group Members
-- Sakshi Singh
-- Kumkum
-- Deepika Suman
-- Anmol Verma
+- Sakshi Singh - 245UAI053
+- Kumkum - 245UAI067
+- Deepika Suman - 245UAI034
+- Anmol Verma - 245UAI021
 
 ---
 
