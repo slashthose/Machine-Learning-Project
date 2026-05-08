@@ -239,6 +239,16 @@ The `model.pkl` file is also **not included** due to its large size of 400-600MB
 
 ### 🚀 [View Live Demo](https://machine-learning-project-3wnkaegtpesvzuuerbdrky.streamlit.app/)
 
-Made with ❤️ by **Sakshi** | Gautam Buddha University | B.Tech CSE (AI) | 2024-25
+## 👨‍💻 Group Members
+ 
+| Name | Enrollment No |
+|------|--------------|
+| Sakshi Singh | 245UAI053 |
+| Kumkum | 245UAI067 |
+| Deepika Suman | 245UAI034 |
+| Anmol Verma | 245UAI021 |
+ 
+
+| Gautam Buddha University | B.Tech CSE (AI) | 2024-25
 
 </div>
