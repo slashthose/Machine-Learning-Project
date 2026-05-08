@@ -1,122 +1,256 @@
-🛡️ Online Fraud Detection System
+# 🛡️ Online Fraud Detection System
 
-An end-to-end Machine Learning project designed to detect fraudulent credit card transactions in real time using multiple ML algorithms and a live Streamlit web application.
+<div align="center">
 
-👩‍💻 About the Project
+[![Python](https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge&logo=python)](https://python.org)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-Latest-orange?style=for-the-badge&logo=scikit-learn)](https://scikit-learn.org)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-Latest-FF6F00?style=for-the-badge&logo=tensorflow)](https://tensorflow.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Latest-FF4B4B?style=for-the-badge&logo=streamlit)](https://streamlit.io)
 
-Student: Sakshi
-College: Gautam Buddha University
-Program: B.Tech CSE (Artificial Intelligence)
-Course: Machine Learning
-Academic Year: 2024–25
+**A complete end-to-end Machine Learning system that detects fraudulent credit card transactions in real time with 99.99% accuracy**
 
-This project was developed as part of the Machine Learning curriculum to demonstrate how AI can solve real-world financial security problems. The system analyzes transaction patterns and predicts whether a transaction is legitimate or fraudulent.
+</div>
 
-🎯 Problem Statement
+---
 
-Credit card fraud has become a major issue in the digital world, causing huge financial losses every year. One of the biggest challenges is that fraudulent transactions are extremely rare compared to normal ones.
+## 👩‍💻 About The Project
 
-In this dataset:
+| Detail | Info |
+|--------|------|
+| **Student** | Sakshi |
+| **College** | Gautam Buddha University |
+| **Program** | B.Tech CSE (Artificial Intelligence) |
+| **Course** | Machine Learning |
+| **Year** | 2024-25 |
 
-Total transactions: 284,807
-Fraud cases: 492 only
-Fraud percentage: 0.173%
+---
 
-Because of this imbalance, detecting fraud accurately is very difficult.
-This project solves the problem using Machine Learning techniques and SMOTE balancing, achieving up to 99.99% accuracy.
+## 🎯 Problem Statement
 
-📊 Dataset Information
+Credit card fraud causes **billions of dollars** in losses every year. Out of 2,84,807 real transactions only **492 are fraudulent (0.173%)** making detection extremely challenging. Traditional rule-based systems fail to adapt to evolving fraud patterns. This project builds an intelligent ML system that learns from historical data and detects fraud **instantly and accurately**.
 
-Dataset Source: Kaggle – Credit Card Fraud Detection (ULB)
+---
 
-Dataset Details
-Transactions: 284,807
-Fraud Cases: 492
-Features: 30
-V1–V28 → PCA transformed features
-Time
-Amount
+## 🖥️ Live Demo
 
-The dataset contains real anonymized credit card transaction data collected by European cardholders.
+<div align="center">
 
-🤖 Models Used and Performance
-Model	Accuracy	ROC-AUC Score
-Random Forest ⭐	99.99%	1.0000
-KNN	99.90%	0.9997
-Neural Network	99.88%	0.9995
-Decision Tree	99.83%	0.9983
-Logistic Regression	94.84%	0.9895
-Best Performing Model
+### Main Dashboard
+![Main Dashboard](screenshots/dashboard.png)
 
-The Random Forest Classifier performed the best with:
+### Fraud Detection Result
+![Fraud Result](screenshots/fraud_result.png)
 
-99.99% Accuracy
-1.0000 ROC-AUC Score
+### Legitimate Transaction Result
+![Legit Result](screenshots/legit_result.png)
 
-This means the model was able to identify almost every fraudulent transaction correctly.
+### Model Comparison Charts
+![Charts](screenshots/charts.png)
 
-⚙️ Technologies and Tools Used
-Programming Language: Python 3.13
-Machine Learning: Scikit-learn
-Deep Learning: TensorFlow & Keras
-Web Application: Streamlit
-Data Processing: Pandas & NumPy
-Visualization: Matplotlib & Seaborn
-Imbalance Handling: SMOTE (Imbalanced-learn)
+</div>
 
-📁 Project Structure
+---
+
+## 📊 Dataset
+
+| Attribute | Value |
+|-----------|-------|
+| **Source** | Kaggle - Credit Card Fraud Detection (ULB) |
+| **Total Transactions** | 2,84,807 |
+| **Legitimate (Class 0)** | 2,84,315 |
+| **Fraudulent (Class 1)** | 492 |
+| **Fraud Percentage** | 0.173% |
+| **Total Features** | 30 (V1-V28 PCA transformed, Time, Amount) |
+| **After SMOTE** | 5,68,630 balanced samples |
+
+> 📥 Download dataset from [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+
+---
+
+## 🤖 Models and Results
+
+| Model | Accuracy | ROC-AUC | Rank |
+|-------|----------|---------|------|
+| ⭐ Random Forest | **99.99%** | **1.0000** | 🥇 Best |
+| KNN | 99.90% | 0.9997 | 🥈 2nd |
+| Neural Network | 99.88% | 0.9995 | 🥉 3rd |
+| Decision Tree | 99.83% | 0.9983 | 4th |
+| Logistic Regression | 94.84% | 0.9895 | 5th |
+
+---
+
+## 📈 Output Graphs
+
+<div align="center">
+
+### EDA Plots
+![EDA](outputs/eda_plots.png)
+
+### Model Comparison
+![Model Comparison](outputs/model_comparison.png)
+
+### Best Model Evaluation
+![Best Model](outputs/best_model_evaluation.png)
+
+### Neural Network Training
+![Neural Network](outputs/neural_network_training.png)
+
+</div>
+
+---
+
+## ⚙️ Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| **Language** | Python 3.13 |
+| **ML Library** | Scikit-learn |
+| **Deep Learning** | TensorFlow and Keras |
+| **Web App** | Streamlit |
+| **Data Handling** | Pandas and NumPy |
+| **Visualization** | Matplotlib and Seaborn |
+| **Imbalance Fix** | SMOTE (Imbalanced-learn) |
+| **Model Saving** | Pickle |
+| **IDE** | VS Code |
+
+---
+
+## 📁 Project Structure
+
+```
 fraud-detection/
-├── data/
-│   ├── creditcard.csv
-│   └── requirements.txt
-├── outputs/
-│   ├── eda_plots.png
-│   ├── model_comparison.png
-│   ├── best_model_evaluation.png
-│   └── neural_network_training.png
-├── app.py
-├── fraud_detection.py
-├── model.pkl
-├── run_setup.py
-└── README.md
+│
+├── 📁 data/
+│   ├── creditcard.csv              ← dataset (download from Kaggle)
+│   └── requirements.txt            ← all libraries
+│
+├── 📁 outputs/
+│   ├── eda_plots.png               ← EDA visualization
+│   ├── model_comparison.png        ← model comparison chart
+│   ├── best_model_evaluation.png   ← confusion matrix + ROC
+│   └── neural_network_training.png ← training graph
+│
+├── 📁 screenshots/                 ← app screenshots
+│   ├── dashboard.png
+│   ├── fraud_result.png
+│   ├── legit_result.png
+│   └── charts.png
+│
+├── 📄 fraud_detection.py           ← main ML training code
+├── 📄 app.py                       ← Streamlit web application
+├── 📄 save_model.py                ← saves model.pkl only
+├── 📄 model.pkl                    ← saved trained model
+├── 📄 run_setup.py                 ← creates project folders
+└── 📄 README.md                    ← this file
+```
 
+---
 
-📈 Key Highlights
-Random Forest achieved nearly perfect fraud detection performance
-SMOTE balanced the dataset successfully
-Neural Network reached 99.88% accuracy after 15 epochs
-A live Streamlit web app was developed for real-time predictions
-Multiple ML models were trained and compared
-The project covers all major Machine Learning syllabus concepts
+## 🚀 How to Run
 
+### Step 1 - Clone Repository
+```bash
+git clone https://github.com/yourusername/fraud-detection-system
+cd fraud-detection-system
+```
 
+### Step 2 - Install Libraries
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn imbalanced-learn tensorflow streamlit
+```
 
-📚 Syllabus Coverage
-Unit I
-Real-world Machine Learning application using fraud detection
+### Step 3 - Download Dataset
+- Go to [Kaggle Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+- Download `creditcard.csv`
+- Place it inside the `data/` folder
 
-Unit II
-Implementation of:
-Logistic Regression
-Decision Tree
-Random Forest
-KNN
+### Step 4 - Train Models
+```bash
+python fraud_detection.py
+```
+⏳ This takes about 15-20 minutes
 
-Unit III
-Use of:
-PCA-transformed features
-SMOTE balancing technique
+### Step 5 - Run Web App
+```bash
+streamlit run app.py
+```
 
-Unit IV
-Deep Learning concepts:
-Multilayer Perceptron (MLP)
-ReLU Activation
-Sigmoid Activation
-Backpropagation
+### Step 6 - Open in Browser
+```
+http://localhost:8501
+```
 
-📜 References
-Kaggle Credit Card Fraud Detection Dataset (ULB)
-Chawla et al., “SMOTE Technique,” JAIR, 2002
-Breiman L., “Random Forests,” Machine Learning Journal, 2001
-Scikit-learn Documentation
-TensorFlow Documentation
+---
+
+## 🌐 Web App Features
+
+### 🔍 Tab 1 - Predict Transaction
+- Select from 5 real sample transactions
+- Get instant Fraud or Legitimate verdict
+- See fraud probability percentage
+- View confidence breakdown
+- Risk level indicator High Medium Low
+
+### 📊 Tab 2 - Results and Charts
+- All 5 model accuracy metrics
+- Complete results comparison table
+- Accuracy and ROC-AUC bar charts
+- Neural network training graph
+- Dataset distribution pie chart
+
+### ℹ️ Tab 3 - How It Works
+- Complete 6 step pipeline explanation
+- Syllabus coverage table
+- Full tech stack details
+
+---
+
+## 📚 Syllabus Coverage
+
+| Unit | Topic | Coverage |
+|------|-------|----------|
+| Unit I | Introduction to ML | Real world fraud detection application |
+| Unit II | Supervised Learning | LR, DT, Random Forest, KNN implemented |
+| Unit III | Unsupervised Learning | PCA features V1-V28 and SMOTE used |
+| Unit IV | Neural Networks | 3 layer MLP with ReLU Sigmoid Backprop |
+
+---
+
+## 🔑 Key Highlights
+
+- ✅ Random Forest achieved **perfect 99.99% accuracy**
+- ✅ ROC-AUC of **1.0000** means perfect fraud detection
+- ✅ SMOTE balanced dataset from **492 to 5,68,630 samples**
+- ✅ Neural Network trained **15 epochs** reached 99.88%
+- ✅ **Live web app** built for real time detection
+- ✅ Covers **all 4 units** of ML syllabus in one project
+- ✅ **5 models** trained and compared on same dataset
+
+---
+
+## 📜 References
+
+1. [Kaggle Credit Card Fraud Detection Dataset - ULB](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+2. Chawla et al. SMOTE Synthetic Minority Oversampling Technique. JAIR 2002
+3. Breiman L. Random Forests. Machine Learning Journal 2001
+4. [Scikit-learn Documentation](https://scikit-learn.org)
+5. [TensorFlow Documentation](https://tensorflow.org)
+6. Pedregosa et al. Scikit-learn Machine Learning in Python. JMLR 2011
+
+---
+
+## ⚠️ Note
+
+The `creditcard.csv` dataset is **not included** in this repository due to its large size of 150MB. Please download it from Kaggle using the link above and place it in the `data/` folder before running.
+
+The `model.pkl` file is also **not included** due to its large size of 400-600MB. Run `fraud_detection.py` to generate it.
+
+---
+
+<div align="center">
+
+**🛡️ Online Fraud Detection System**
+
+Made with ❤️ by **Sakshi** | Gautam Buddha University | B.Tech CSE (AI) | 2024-25
+
+</div>
