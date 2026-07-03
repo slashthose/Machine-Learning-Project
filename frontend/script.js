@@ -2,7 +2,7 @@
 // SAKSHI SECURE BANK — frontend logic (no framework, vanilla JS)
 // ══════════════════════════════════════════════════════════
 
-const API = ""; // same-origin, FastAPI serves both API and static files
+const API = " https://machine-learning-project-u3mm.onrender.com"; // same-origin, FastAPI serves both API and static files
 
 let SAMPLES = {};
 let currentV = new Array(28).fill(0);
