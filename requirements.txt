@@ -1,0 +1,13 @@
+# Backend (FastAPI)
+fastapi
+uvicorn[standard]
+pydantic
+scikit-learn
+numpy
+
+# Notebook (training)
+pandas
+matplotlib
+seaborn
+imbalanced-learn
+jupyter
