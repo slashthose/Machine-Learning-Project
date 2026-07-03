@@ -207,7 +207,7 @@ PORT=8000
 
 | Dashboard | Analysis Readout |
 |---|---|
-| ![Dashboard](./screenshots/dashboard.png) | ![Analysis Readout](./screenshots/analysis-readout.png) |
+| ![Dashboard](./Outputs/dashboard.png) | ![Analysis Readout](./Outputs/terminal.png) |
 
 ---
 
