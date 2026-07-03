@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fraud Monitor · FinWise Secure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 L12 4 L21 10"/><rect x="4" y="10" width="16" height="9" rx="0.5"/><line x1="2" y1="19" x2="22" y2="19"/><line x1="7" y1="12" x2="7" y2="17"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="17" y1="12" x2="17" y2="17"/></svg>
+    </span>
+    <span>FINWISE&nbsp;SECURE&nbsp;BANK</span>
+  </div>
+  <div class="nav-links">
+    <a href="#scan" class="nav-link">Scan</a>
+    <a href="#results" class="nav-link">Model Results</a>
+    <a href="#how" class="nav-link">How It Works</a>
+  </div>
+  <div class="nav-tag">GBU · B.Tech CSE (AI)</div>
+</nav>
+
+<!-- ══════════════════ ATM HERO ══════════════════ -->
+<div class="hero-wrap">
+  <div class="atm-frame">
+    <div class="card-slot"></div>
+    <header class="atm-screen">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L20 6 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V6 Z"/><path d="M9 12 L11 14 L15 9"/></svg></span>
+          ATM Fraud Monitor · Machine Learning
+        </p>
+        <h1>Every transaction,<br>checked at the terminal.</h1>
+        <p class="hero-sub">
+          A Random Forest classifier trained on 284,807 real card transactions,
+          balanced with SMOTE, screening each swipe for the fingerprints of
+          fraud the moment it's authorized.
+        </p>
+        <a href="#scan" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          Scan a Transaction
+        </a>
+        <div class="hero-stats">
+          <div>
+            <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12 L11 14 L15 10"/></svg></span>
+            <div><span class="stat-num">99.99%</span><span class="stat-label">Accuracy</span></div>
+          </div>
+          <div>
+            <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 L9 11 L13 15 L21 7"/><path d="M15 7 H21 V13"/></svg></span>
+            <div><span class="stat-num">1.0000</span><span class="stat-label">ROC-AUC</span></div>
+          </div>
+          <div>
+            <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3 3"/></svg></span>
+            <div><span class="stat-num">0.173%</span><span class="stat-label">True Fraud Rate</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card-stage" id="cardStage">
+          <div id="cardFlip" class="card-flip">
+            <div id="scanline" class="scanline"></div>
+
+            <div class="card-face card-front" id="cardFront">
+              <div class="card-row">
+                <span class="card-brand">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 L12 4 L21 10"/><rect x="4" y="10" width="16" height="9" rx="0.5"/><line x1="2" y1="19" x2="22" y2="19"/></svg>
+                   SECURE
+                </span>
+                <span id="cardBadge" class="card-badge idle">AWAITING SCAN</span>
+              </div>
+              <div class="chip"></div>
+              <div class="hologram"></div>
+              <div id="cardNumbers" class="card-numbers">•••• •••• •••• 0000</div>
+              <div class="card-bottom">
+                <div>
+                  <div class="card-label">Amount</div>
+                  <div id="cardAmount" class="card-value">$0.00</div>
+                </div>
+                <div>
+                  <div class="card-label">Fraud Risk</div>
+                  <div id="cardRisk" class="card-value">0.0%</div>
+                </div>
+                <div>
+                  <div class="card-label">Valid Thru</div>
+                  <div class="card-value">GBU/28</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-face card-back">
+              <div class="magstripe"></div>
+              <div class="signature-row">
+                <div class="signature-panel"></div>
+                <div id="cvvBox" class="cvv-box">•••</div>
+              </div>
+              <p class="card-back-note">This card remains property of Finwise Secure Bank. Report lost or stolen cards immediately.</p>
+            </div>
+          </div>
+        </div>
+        <p class="tap-hint">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5 V6 a1.5 1.5 0 0 1 3 0 v5"/><path d="M12 11.5 V5 a1.5 1.5 0 0 1 3 0 v6.5"/><path d="M15 11.5 V6.5 a1.5 1.5 0 0 1 3 0 V13 c0 4-2.5 8-7 8-3.5 0-5.5-2-7-5l-1.5-3 c-.6-1.2 0-2.5 1.3-2.7 .8-.1 1.6.3 2 1 L7 13"/></svg>
+          Tap the card to flip it
+        </p>
+      </div>
+    </header>
+  </div>
+</div>
+
+<!-- ══════════════════ SCAN ══════════════════ -->
+<section id="scan" class="section">
+  <div class="section-head">
+    <p class="eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+      01 — Live Terminal
+    </p>
+    <h2>
+      <span class="icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="6" y1="14" x2="10" y2="14"/></svg></span>
+      Run a transaction through the model
+    </h2>
+  </div>
+
+  <div class="scan-grid">
+    <div class="panel">
+      <label class="field-label" for="sampleSelect">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9 h20"/></svg>
+        Quick-load a known transaction
+      </label>
+      <select id="sampleSelect" class="input">
+        <option value="">— Select a sample —</option>
+      </select>
+
+      <div id="sampleTag" class="sample-tag hidden"></div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="amountInput">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+            Amount ($)
+          </label>
+          <input id="amountInput" class="input" type="number" min="0.01" max="1000000" step="0.01" value="150.00">
+        </div>
+        <div class="field">
+          <label class="field-label" for="timeInput">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3 3"/></svg>
+            Time (seconds since first transaction)
+          </label>
+          <input id="timeInput" class="input" type="number" min="0" max="200000" step="1" value="50000">
+        </div>
+      </div>
+
+      <p class="hint">V1–V28 are PCA-transformed features, auto-filled from the selected sample (or zeroed for a manual entry).</p>
+
+      <button id="analyzeBtn" class="btn-primary btn-block">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Analyze Transaction
+      </button>
+
+      <div id="apiNotice" class="notice hidden"></div>
+    </div>
+
+    <div class="panel result-panel">
+      <p class="field-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="14" x2="18" y2="14"/><line x1="6" y1="17" x2="14" y2="17"/></svg>
+        Analysis Readout
+      </p>
+      <div id="resultEmpty" class="result-empty">
+        <span class="icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L20 6 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V6 Z"/></svg></span>
+        Run a scan to see the verdict here.
+      </div>
+
+      <div id="resultBody" class="hidden">
+        <div class="verdict-row">
+          <span id="verdictBadge" class="verdict-badge">—</span>
+          <span id="riskPill" class="risk-pill">—</span>
+        </div>
+
+        <div class="meter">
+          <div class="meter-label"><span>Fraud risk</span><span id="fraudPct">0%</span></div>
+          <div class="meter-track"><div id="fraudBar" class="meter-fill fraud"></div></div>
+        </div>
+        <div class="meter">
+          <div class="meter-label"><span>Legitimate score</span><span id="legitPct">0%</span></div>
+          <div class="meter-track"><div id="legitBar" class="meter-fill legit"></div></div>
+        </div>
+
+        <p id="recommendation" class="recommendation">
+          <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L20 6 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V6 Z"/></svg></span>
+          <span id="recommendationText"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ RESULTS ══════════════════ -->
+<section id="results" class="section alt">
+  <div class="section-head">
+    <p class="eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+      02 — Training Results
+    </p>
+    <h2>
+      <span class="icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="4"/><ellipse cx="12" cy="6" rx="4" ry="1.6"/><path d="M8 6 v5 a4 1.6 0 0 0 8 0 V6"/><path d="M8 11 v5 a4 1.6 0 0 0 8 0 v-5"/></svg></span>
+      Five models, one dataset
+    </h2>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span>
+      <div><span class="stat-card-num">2,84,807</span><span class="stat-card-label">Total transactions</span></div>
+    </div>
+    <div class="stat-card">
+      <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9 v4 M12 16.5 h.01"/><path d="M10.3 3.9 2.7 17 a1.7 1.7 0 0 0 1.5 2.5 h15.6 a1.7 1.7 0 0 0 1.5-2.5 L13.7 3.9 a1.7 1.7 0 0 0-3.4 0Z"/></svg></span>
+      <div><span class="stat-card-num">492</span><span class="stat-card-label">Fraud cases (0.173%)</span></div>
+    </div>
+    <div class="stat-card">
+      <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 L9 11 L13 15 L21 7"/><path d="M15 7 H21 V13"/></svg></span>
+      <div><span class="stat-card-num">5,68,630</span><span class="stat-card-label">Samples after SMOTE</span></div>
+    </div>
+    <div class="stat-card">
+      <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L20 6 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V6 Z"/><path d="M9 12 L11 14 L15 9"/></svg></span>
+      <div><span class="stat-card-num">Random Forest</span><span class="stat-card-label">Best model</span></div>
+    </div>
+  </div>
+
+  <div class="results-grid">
+    <table id="resultsTable" class="results-table">
+      <thead>
+        <tr><th>Model</th><th>Accuracy</th><th>ROC-AUC</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="chart-wrap">
+      <canvas id="resultsChart" height="220"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ HOW IT WORKS ══════════════════ -->
+<section id="how" class="section">
+  <div class="section-head">
+    <p class="eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+      03 — Pipeline
+    </p>
+    <h2>
+      <span class="icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15 a1.65 1.65 0 0 0 .33 1.82 l.06.06 a2 2 0 1 1-2.83 2.83 l-.06-.06 a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51 V21 a2 2 0 1 1-4 0 v-.09 A1.65 1.65 0 0 0 9 19.4 a1.65 1.65 0 0 0-1.82.33 l-.06.06 a2 2 0 1 1-2.83-2.83 l.06-.06 a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1 H3 a2 2 0 1 1 0-4 h.09 A1.65 1.65 0 0 0 4.6 9 a1.65 1.65 0 0 0-.33-1.82 l-.06-.06 a2 2 0 1 1 2.83-2.83 l.06.06 a1.65 1.65 0 0 0 1.82.33 H9 a1.65 1.65 0 0 0 1-1.51 V3 a2 2 0 1 1 4 0 v.09 a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33 l.06-.06 a2 2 0 1 1 2.83 2.83 l-.06.06 a1.65 1.65 0 0 0-.33 1.82 V9 a1.65 1.65 0 0 0 1.51 1 H21 a2 2 0 1 1 0 4 h-.09 a1.65 1.65 0 0 0-1.51 1Z"/></svg></span>
+      How a transaction gets classified
+    </h2>
+  </div>
+
+  <ol class="pipeline">
+    <li>
+      <span class="pipeline-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 v12 m0 0 l-4-4 m4 4 l4-4"/><path d="M4 17 v2 a2 2 0 0 0 2 2 h12 a2 2 0 0 0 2-2 v-2"/></svg></span>
+      <div><h3>Load</h3><p>284,807 real transactions from the Kaggle (ULB) credit card fraud dataset.</p></div>
+    </li>
+    <li>
+      <span class="pipeline-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4 h16 l-6 8 v6 l-4 2 v-8 Z"/></svg></span>
+      <div><h3>Preprocess</h3><p>Time and Amount are each standardized with their own <code>StandardScaler</code>; V1–V28 arrive already PCA-transformed.</p></div>
+    </li>
+    <li>
+      <span class="pipeline-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 v18 M6 7 H2 l3 6 a3 3 0 0 0 4 0 Z M22 7 h-4 l3 6 a3 3 0 0 0 4 0 Z" /><path d="M6 7 h12"/></svg></span>
+      <div><h3>Balance</h3><p>SMOTE oversamples the fraud class so the model sees fraud and legitimate patterns in equal number.</p></div>
+    </li>
+    <li>
+      <span class="pipeline-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2 v4 M15 2 v4 M9 18 v4 M15 18 v4 M2 9 h4 M2 15 h4 M18 9 h4 M18 15 h4"/></svg></span>
+      <div><h3>Train</h3><p>Logistic Regression, Decision Tree, Random Forest, KNN and a small neural net are trained on the balanced set, in a fixed column order: <code>Time, V1…V28, Amount</code>.</p></div>
+    </li>
+    <li>
+      <span class="pipeline-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="7" y1="17" x2="7.01" y2="17"/></svg></span>
+      <div><h3>Serve</h3><p>FastAPI loads the saved model and scalers, rebuilds that exact column order for every request, and returns a fraud probability.</p></div>
+    </li>
+  </ol>
+
+<footer class="footer">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 L12 4 L21 10"/><rect x="4" y="10" width="16" height="9" rx="0.5"/><line x1="2" y1="19" x2="22" y2="19"/></svg>
+  ATM Fraud Monitor · FinWise Secure · Gautam Buddha University · B.Tech CSE (AI) · 2024–25
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
