@@ -15,6 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from typing import List
+import urllib.request
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FRONTEND_DIR = os.path.join(BASE_DIR, "..", "frontend")
@@ -40,22 +41,28 @@ scalers = None
 using_fallback_scaler = True
 
 
+
+MODEL_URL = "https://github.com/slashthose/Machine-Learning-Project/releases/download/binaryfiles/model.pkl"
+SCALERS_URL = "https://github.com/slashthose/Machine-Learning-Project/releases/download/binaryfiles/scalers.pkl "
+
 def load_artifacts():
     global model, scalers, using_fallback_scaler
     model_path = os.path.join(BASE_DIR, "model.pkl")
     scalers_path = os.path.join(BASE_DIR, "scalers.pkl")
 
-    if os.path.exists(model_path):
-        with open(model_path, "rb") as f:
-            model = pickle.load(f)
+    if not os.path.exists(model_path):
+        print("Downloading model.pkl from GitHub Release...")
+        urllib.request.urlretrieve(MODEL_URL, model_path)
 
-    if os.path.exists(scalers_path):
-        with open(scalers_path, "rb") as f:
-            scalers = pickle.load(f)
-        using_fallback_scaler = False
-    else:
-        using_fallback_scaler = True
+    if not os.path.exists(scalers_path):
+        print("Downloading scalers.pkl from GitHub Release...")
+        urllib.request.urlretrieve(SCALERS_URL, scalers_path)
 
+    with open(model_path, "rb") as f:
+        model = pickle.load(f)
+    with open(scalers_path, "rb") as f:
+        scalers = pickle.load(f)
+    using_fallback_scaler = False
 
 load_artifacts()
 
